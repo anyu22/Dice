@@ -5,12 +5,13 @@ void setup()
 void draw()
 {
 	//your code here
-	fill(0);
-	for (int x = 1; x = 6; x++)
+	
+	for (int x = 10; x <= 60; x= x +15)
 	{
-		for (int y= 1; y= 6; y++)
+		for (int y= 10; y<= 60; y= y+15)
 		{
-			rect(10,10,10,10);
+			Die bob = new Die(x,y);
+			bob.show();
 		}
 
 	}
@@ -21,23 +22,36 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-	int x, y, randomRoll;//variable declarations here
+	int myX, myY, randomRoll;//variable declarations here
 	Die(int x, int y) //constructor
 	{
 		//variable initializations here
-		x = 5;
-		y= 5;
+		myX = x;
+		myY= y;
 	}
 	void roll()
 	{
 		//your code here
-		randomRoll = (int)(Math.random()*6)+ 1);
-
+		if(Math.random() < 0.16) ;
+		{
+			randomRoll = 1
+		}
+		else if(Math.random() < 0.32)
+		{
+			randomRoll = 2
+		}
+		else if (Math.random() < 0.48)
+		{
+			randomRoll = 3
+		}
+		else if (Math.random() < 0.64)
+		{
+			randomRoll= 4
+		}
 	}
 	void show()
 	{
 		//your code here
-		if (randomRoll == 1)
-			ellipse(x,y,2,2);
+		rect(myX,myY,10,10);
 	}
 }
