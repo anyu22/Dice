@@ -1,17 +1,19 @@
 void setup()
 {
 	noLoop();
+	size(700,700);
 }
 void draw()
 {
 	//your code here
 	
-	for (int x = 10; x <= 60; x= x +15)
+	for (int x = 10; x <= 600; x= x +50)
 	{
-		for (int y= 10; y<= 60; y= y+15)
+		for (int y= 10; y<= 600; y= y+50)
 		{
 			Die bob = new Die(x,y);
 			bob.show();
+			bob.roll();
 		}
 
 	}
@@ -32,30 +34,45 @@ class Die //models one single dice cube
 	void roll()
 	{
 		//your code here
-		int x =(int)Math.random();
-		if(x <= 0.16) {
-			randomRoll = 1;
-		}
-		else if(x <= 0.32 ){
-			randomRoll = 2;
-		}
-		else if (x <= 0.48){
-			randomRoll = 3;
-		}
-		else if (x < 0.64) {
-			randomRoll= 4;
-		}
-		else if (x < 0.8 ) {
-			randomRoll = 5;
-		}
-		else{
-			randomRoll = 6;
-		}
+		int randomRoll = (int)((Math.random()*6) +1);
 		System.out.println(randomRoll);
+		if (randomRoll == 1){
+			ellipse(myX + 20,myY+ 20,8,8);
+		}
+		if (randomRoll == 2){
+			ellipse(myX +10, myY + 10, 8,8);
+			ellipse(myX + 30, myY +30,8,8);
+		}
+		if (randomRoll == 3){
+			ellipse(myX +10, myY + 10, 8,8);
+			ellipse(myX + 20,myY+ 20,8,8);
+			ellipse(myX + 30, myY +30,8,8);
+		}
+		if (randomRoll == 4){
+			ellipse(myX +10, myY + 10, 8,8);
+			ellipse(myX +10, myY + 30, 8,8);
+			ellipse(myX +30, myY + 10, 8,8);
+			ellipse(myX +30, myY + 30, 8,8);
+		}
+		if (randomRoll == 5){
+			ellipse(myX +10, myY + 10, 8,8);
+			ellipse(myX +10, myY + 30, 8,8);
+			ellipse(myX +30, myY + 10, 8,8);
+			ellipse(myX +30, myY + 30, 8,8);
+			ellipse(myX + 20,myY+ 20,8,8);
+		}
+		if (randomRoll == 6){
+			ellipse(myX +10, myY + 10, 8,8);
+			ellipse(myX +10, myY + 30, 8,8);
+			ellipse(myX +30, myY + 10, 8,8);
+			ellipse(myX +30, myY + 30, 8,8);
+			ellipse(myX +10, myY+20,8,8 );
+			ellipse(myX + 30, myY +20,8,8);
+		}
 	}
 	void show()
 	{
 		//your code here
-		rect(myX,myY,10,10);
+		rect(myX,myY,40,40);
 	}
 }
